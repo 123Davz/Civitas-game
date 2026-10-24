@@ -1,0 +1,13 @@
+CIVITAS II - GESTIONALE ISOMETRICO OFFLINE
+
+1. Pubblica TUTTI i file di questa cartella su hosting HTTPS statico (es. GitHub Pages).
+2. Apri la pagina index.html con Safari su iPhone, attendi il primo caricamento online.
+3. Tocca Condividi > Aggiungi alla schermata Home.
+4. Apri Civitas II dalla Home. Dopo il caching iniziale funziona offline.
+5. Tocca le caselle della mappa per selezionare un lotto, poi scegli l'edificio.
+6. Se il terreno è occupato da rocce o alberi non è edificabile.
+7. I progressi sono salvati automaticamente sul browser locale; usa Salvataggi > Esporta backup per conservare una copia indipendente.
+8. Lo svuotamento dei dati di Safari o la rimozione dei dati del sito può cancellare il salvataggio locale.
+9. Esporta il backup v1 prima di passare alla v2. La v2 tenta di migrare automaticamente il salvataggio v1 solo se gira sulla stessa origine web.
+
+NOTA: l'apertura diretta del file index.html non consente l'installazione di una PWA offline, perché il service worker richiede HTTPS (o localhost).
