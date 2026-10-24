@@ -34,7 +34,7 @@ function migrate(old){let s=makeFresh();s.res=old.res;s.pop=old.pop;s.tech=old.t
 function valid(s){return !!(s&&s.v===2&&Array.isArray(s.tiles)&&s.tiles.length===N*N&&s.tiles.every(t=>t&&['grass','tree','rock'].includes(t.kind)&&(t.building===null||BUILD.some(b=>b.id===t.building)))&&s.res&&Object.keys(R).every(k=>Number.isFinite(s.res[k])&&s.res[k]>=0)&&Number.isFinite(s.pop)&&s.pop>=0&&Number.isFinite(s.last)&&s.tech&&Number.isFinite(s.tax))}
 let state;try{state=JSON.parse(localStorage.getItem(KEY)||'null')}catch{}if(!valid(state)){try{let old=JSON.parse(localStorage.getItem(OLD)||'null');state=old&&old.v===1&&old.res&&old.build?migrate(old):startingVillage()}catch{state=startingVillage()}}
 const $=id=>document.getElementById(id),fmt=n=>!Number.isFinite(n)?'0':Math.abs(n)>=1e6?(n/1e6).toFixed(2)+' M':Math.abs(n)>=1000?(n/1000).toFixed(1)+' k':n.toFixed(Math.abs(n)<10&&Math.abs(n)%1>0?1:0);
-const qty=id=>state.tiles.reduce((n,t)=>n+(t.building===id?1:0),0),has=id=>!!state.tech[id];let latest={},page='map',choice='home',selected={x:5,y:5},view={offsetX:0,offsetY:0,zoom:1};
+const qty=id=>state.tiles.reduce((n,t)=>n+(t.building===id?1:0),0),has=id=>!!state.tech[id];let latest={},page='map',choice='home',selected={x:5,y:6},view={offsetX:0,offsetY:0,zoom:1};
 function save(){state.last=Date.now();try{localStorage.setItem(KEY,JSON.stringify(state))}catch{toast('Memoria del browser piena: esporta il backup')}}
 function toast(t){$('toast').textContent=t;$('toast').classList.remove('hide');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').classList.add('hide'),2300)}
 function log(t){state.logs.unshift(t);state.logs=state.logs.slice(0,8)}
